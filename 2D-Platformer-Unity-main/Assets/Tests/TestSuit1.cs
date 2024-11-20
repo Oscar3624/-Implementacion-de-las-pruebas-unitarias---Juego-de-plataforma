@@ -33,8 +33,8 @@ public class TestSuit1
         playerController.controlmode = Controls.pc;
 
 
-        playerObject = new GameObject();
-        playerController = playerObject.AddComponent<PlayerController>();
+        //playerObject = new GameObject();
+        //playerController = playerObject.AddComponent<PlayerController>();
 
         //Game Manager
         managerObject = new GameObject();
@@ -72,6 +72,8 @@ public class TestSuit1
         // Verifica que el jugador se haya movido hacia la izquierda
         Assert.Less(playerController.transform.position.x, initialPosition.x, "no se movio a la izq");
     }
+
+    
     [Test]
     public void JugadorSoloSeDesactivaDeEscenaCuandoMuere()
     {
@@ -94,8 +96,11 @@ public class TestSuit1
         public void SumarMonedaAContador()
         {
             gameManager.IncrementCoinCount();
+            Debug.Log("monedas:" + gameManager.coinCount);
             Assert.AreEqual(1, gameManager.coinCount);
         }
+
+
 
         [Test] //Test para reiniciar el contador de monedas
         //No funciona

@@ -40,9 +40,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGUI();
-        UIManager.instance.fadeFromBlack = true;
-        playerPosition = playerController.transform.position;
+        //modifique esto para que funcione
+        //UpdateGUI();
+        //UIManager.instance.fadeFromBlack = true;
+        //playerPosition = playerController.transform.position;
 
         FindTotalPickups();
     }
@@ -60,14 +61,17 @@ public class GameManager : MonoBehaviour
 
     private void UpdateGUI()
     {
-        coinText.text = coinCount.ToString();
+        //coinText.text = coinCount.ToString();
   
     }
 
     public void Death()
     {
+        // Agregue esto para que las monedas vuelvan a 0
+            coinCount = 0;
         if (!isGameOver)
         {
+            
             // Disable Mobile Controls
             UIManager.instance.DisableMobileControls();
             // Initiate screen fade
@@ -78,6 +82,8 @@ public class GameManager : MonoBehaviour
 
             // Start death coroutine to wait and then respawn the player
             StartCoroutine(DeathCoroutine());
+
+            
 
             // Update game state
             isGameOver = true;
